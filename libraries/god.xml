@@ -6,13 +6,13 @@
 				<quota galaxy="1" zone="1" gamestart="yololios_gamestart" />
 			</quotas>
 			<location class="sector" macro="cluster_44_sector001_macro"/>
-			<position x="2.027" y="2.621" z="2.546" />
-			<station constructionplan="'x4ep1_playerheadquarters_with_dock'">
+			<position x="0" y="0" z="0" />
+			<rotation yaw="0" pitch="0" roll="0"/>
+			<station constructionplan="'yololios_hq_plan'">
 				<loadout>
 					<level exact="0.2" />
 				</loadout>
 			</station>
 		</station>
-
 	</add>
 </diff>

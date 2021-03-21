@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+	<add sel="//plans">
+		<plan id="yololios_hq_plan" name="{20102,2011}">
+			<entry index="1" macro="landmarks_player_hq_01_research_macro" fixed="1"/>
+			<entry index="2" macro="pier_arg_harbor_03_macro">
+				<offset>
+					<position x="-4971.528" z="2921.887"/>
+					<rotation yaw="30.41356"/>
+				</offset>
+			</entry>
+			<entry index="3" macro="dockarea_arg_m_station_01_hightech_macro" connection="connectionsnap001">
+				<predecessor index="2" connection="connectionsnap001"/>
+				<offset>
+					<position x="-4626.57" z="2719.391"/>
+					<rotation yaw="-59.58642"/>
+				</offset>
+			</entry>
+			<entry index="4" macro="dockarea_arg_m_02_tradestation_01_macro" connection="connectionsnap001">
+				<predecessor index="3" connection="connectionsnap002"/>
+				<offset>
+					<position x="-3936.656" z="2314.401"/>
+					<rotation yaw="30.4136"/>
+				</offset>
+			</entry>
+		</plan>
+	</add>
+</diff>
