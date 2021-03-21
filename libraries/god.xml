@@ -5,8 +5,8 @@
 			<quotas>
 				<quota galaxy="1" zone="1" gamestart="yololios_gamestart" />
 			</quotas>
-			<location class="sector" macro="cluster_44_sector001_macro" />
-			<position x="128000" y="0" z="198000" pitch="0" roll="0" yaw="0" />
+			<location class="sector" macro="cluster_44_sector001_macro"/>
+			<position x="2.027" y="2.621" z="2.546" />
 			<station constructionplan="'x4ep1_playerheadquarters_with_dock'">
 				<loadout>
 					<level exact="0.2" />

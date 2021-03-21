@@ -16,7 +16,7 @@
         <set_value name="$PreviousPhase" exact="null"/>
 
         <find_sector name="$HQSector" macro="macro.cluster_44_sector001_macro"/>
-        <set_value name="$HQPosition" exact="position.[128km, 0m, 198km]"/>
+        <!--set_value name="$HQPosition" exact="position.[128km, 0m, 198km]"/-->
         <set_value name="$MentorRoom" exact="null"/>
 
         <set_value name="$LeakStation" exact="null"/>
