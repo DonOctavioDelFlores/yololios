@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<diff>
+	<add sel="/gamestarts">
+		<gamestart id="yololios_gamestart" name="Yololios" description="Yolo!!!" image="gamestart_1" group="1">
+			<info>
+				<item name="Location" value="Black Hole Sun IV" />
+				<item name="Funds" value="125,000" />
+				<item name="Starting Ship" value="Teladi Buzzard Improved Fighter" />
+				<item name="Ship Loadout:" value="" />
+				<item name="     " value="Performance: Heavily tweaked" />
+				<item name="     " value="Engine: Paranid Combat Mk3" />
+				<item name="     " value="Thruster: Allround Mk3" />
+				<item name="     " value="Shield: Teladi Mk3" />
+				<item name="     " value="Weapons: 3 Bolt Repeater Mk2" />
+				<item name="Blueprints:" value="" />
+				<item name="     " value="A set of Argon station Modules to enable early station construction" />
+				<item name="Sector Map" value="" />
+				<item name="     " value="All sectors from the original Young Gun gamestart are exposed" />
+				<item name="Comments:" value="This game start is targeted at those players who want a somewhat vanilla start, with a fast ship and some decent weapons. The Super Highways have been removed." />
+			</info>
+			<location galaxy="xu_ep2_universe_macro" sector="cluster_44_sector001_macro" station="station_pla_headquarters_base_01_macro">
+				<player disembarked="true">
+					<position x="-0.05115" y="1.806" z="-2.541"/>
+					<rotation yaw="179.69951" pitch="-1.83378"/>
+				</player>
+				<interior module="landmarks_player_hq_01_research_macro" corridor="room_arg_corridor_01_macro" door="con_room_01" room="room_gen_boronoffice_01_macro" name="{20007,1171}" />
+			</location>
+			<player macro="character_player_yololios_macro" money="12500000">
+				<inventory>
+					<ware ware="weapon_gen_spacesuit_laser_01_mk1"/>
+					<ware ware="weapon_gen_spacesuit_demolition_01_mk1"/>
+					<ware ware="weapon_gen_spacesuit_repairlaser_01_mk1"/>
+					<ware ware="software_scannerobjectmk3"/>
+					<ware ware="engine_gen_spacesuit_01_mk1"/>
+					<ware ware="engine_gen_spacesuit_01_mk2"/>
+				</inventory>
+				<blueprints>
+					<ware ware="clothingmod_0001" />
+					<ware ware="clothingmod_0002" />
+					<ware ware="module_arg_conn_base_01"/>
+					<ware ware="module_arg_conn_base_02"/>
+					<ware ware="module_arg_conn_base_03"/>
+					<ware ware="module_arg_conn_cross_01"/>
+					<ware ware="module_arg_conn_vertical_01"/>
+					<ware ware="module_arg_conn_vertical_02"/>
+					<ware ware="module_arg_def_claim_01"/>
+					<ware ware="module_arg_def_disc_01"/>
+					<ware ware="module_arg_def_tube_01"/>
+					<ware ware="module_arg_dock_m_01"/>
+					<ware ware="module_arg_dock_m_01_hightech"/>
+					<ware ware="module_arg_dock_m_01_lowtech"/>
+					<ware ware="module_arg_dock_m_02"/>
+					<ware ware="module_arg_dock_m_02_hightech"/>
+					<ware ware="module_arg_dock_m_02_lowtech"/>
+					<ware ware="module_arg_dock_tradestation_02"/>
+					<ware ware="module_arg_hab_l_01"/>
+					<ware ware="module_arg_hab_m_01"/>
+					<ware ware="module_arg_hab_s_01"/>
+					<ware ware="module_arg_pier_l_01"/>
+					<ware ware="module_arg_pier_l_02"/>
+					<ware ware="module_arg_pier_l_03"/>
+					<ware ware="module_arg_prod_foodrations_01"/>
+					<ware ware="module_arg_prod_meat_01"/>
+					<ware ware="module_arg_prod_medicalsupplies_01"/>
+					<ware ware="module_arg_prod_spacefuel_01"/>
+					<ware ware="module_arg_prod_wheat_01"/>
+					<ware ware="module_arg_stor_container_l_01"/>
+					<ware ware="module_arg_stor_container_m_01"/>
+					<ware ware="module_arg_stor_container_s_01"/>
+					<ware ware="module_arg_stor_liquid_l_01"/>
+					<ware ware="module_arg_stor_liquid_m_01"/>
+					<ware ware="module_arg_stor_liquid_s_01"/>
+					<ware ware="module_arg_stor_solid_l_01"/>
+					<ware ware="module_arg_stor_solid_m_01"/>
+					<ware ware="module_arg_stor_solid_s_01"/>
+					<ware ware="module_gen_prod_energycells_01"/>
+					<ware ware="module_gen_prod_advancedcomposites_01"/>
+					<ware ware="module_gen_prod_advancedelectronics_01"/>
+					<ware ware="module_gen_prod_antimattercells_01"/>
+					<ware ware="module_gen_prod_antimatterconverters_01"/>
+					<ware ware="module_gen_prod_claytronics_01"/>
+					<ware ware="module_gen_prod_dronecomponents_01"/>
+					<ware ware="module_gen_prod_engineparts_01"/>
+					<ware ware="module_gen_prod_fieldcoils_01"/>
+					<ware ware="module_gen_prod_graphene_01"/>
+					<ware ware="module_gen_prod_hullparts_01"/>
+					<ware ware="module_gen_prod_microchips_01"/>
+					<ware ware="module_gen_prod_missilecomponents_01"/>
+					<ware ware="module_gen_prod_plasmaconductors_01"/>
+					<ware ware="module_gen_prod_quantumtubes_01"/>
+					<ware ware="module_gen_prod_refinedmetals_01"/>
+					<ware ware="module_gen_prod_scanningarrays_01"/>
+					<ware ware="module_gen_prod_shieldcomponents_01"/>
+					<ware ware="module_gen_prod_siliconwafers_01"/>
+					<ware ware="module_gen_prod_smartchips_01"/>
+					<ware ware="module_gen_prod_spices_01"/>
+					<ware ware="module_gen_prod_superfluidcoolant_01"/>
+					<ware ware="module_gen_prod_turretcomponents_01"/>
+					<ware ware="module_gen_prod_water_01"/>
+					<ware ware="module_gen_prod_weaponcomponents_01"/>
+					<ware ware="paintmod_0006"/>
+					<ware ware="paintmod_0048"/>
+					<ware ware="paintmod_0049"/>
+					<ware ware="paintmod_0050"/>
+					<ware ware="paintmod_0097"/>
+					<ware ware="paintmod_0098"/>
+					<ware ware="paintmod_0099"/>
+					<ware ware="paintmod_0100"/>
+				</blueprints>
+				<research>
+					<ware ware="research_radioreceiver" />
+					<ware ware="research_sensorbooster" />
+					<ware ware="research_tradeinterface" />
+				</research>
+				<encyclopedia>
+					<entry type="warebasket" ref="research_gamestart_common"/>
+				</encyclopedia>
+				<theme paint="painttheme_player_01" />
+			</player>
+			<universe>
+				<!-- Argon gamestart = friendly with Argon, friendly with Antigone, unfriendly with Holy Order -->
+				<factions>
+					<relations>
+						<relation faction="argon" otherfaction="player" relation="0.1"/>
+						<relation faction="antigone" otherfaction="player" relation="0.0032"/>
+						<relation faction="holyorder" otherfaction="player" relation="-0.009"/>
+						<relation faction="teladi" otherfaction="player" relation="0.1"/>
+						<relation faction="alliance" otherfaction="player" relation="0.05"/>
+					</relations>
+				</factions>
+			</universe>
+		</gamestart>
+	</add>
+</diff>

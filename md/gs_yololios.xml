@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<mdscript name="MFEFinishGamestarts"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
+	<cues>
+		<cue name="finish_yololios_gamestart" module="yololios_gamestart">
+			<conditions>
+				<event_cue_signalled cue="md.Setup.GameStart"/>
+			</conditions>
+			<actions>
+				<signal_cue cue="setup_yololios"/>
+				<signal_cue cue="setup_hq_yololios"/>
+			</actions>
+			<cues>
+				<cue name="setup_yololios">
+					<conditions>
+						<event_cue_signalled/>
+					</conditions>
+					<actions>
+						<set_faction_known faction="faction.antigone" known="true" />
+						<set_faction_known faction="faction.argon" known="true" />
+						<set_faction_known faction="faction.hatikvah" known="true" />
+						<set_faction_known faction="faction.holyorder" known="true" />
+						<set_faction_known faction="faction.ministry" known="true"/>
+						<set_faction_known faction="faction.scaleplate" known="true" />
+						<set_faction_known faction="faction.teladi" known="true" />
+						<set_faction_known faction="faction.split" known="true"/>
+
+						<set_value name="$InitialMap" exact="[
+					macro.cluster_43_sector001_macro,
+					macro.cluster_06_sector001_macro,
+					macro.cluster_42_sector001_macro,
+					macro.cluster_42_sector002_macro, 
+					macro.cluster_19_sector001_macro,
+					macro.cluster_19_sector002_macro,
+					macro.cluster_20_sector001_macro,
+					macro.cluster_18_sector001_macro,
+					macro.cluster_10_sector001_macro,
+					macro.cluster_22_sector001_macro,
+					macro.cluster_11_sector001_macro,
+					macro.cluster_24_sector001_macro,
+					macro.cluster_12_sector001_macro,
+					macro.cluster_13_sector001_macro,
+					macro.cluster_14_sector001_macro,
+					macro.cluster_29_sector001_macro,
+					macro.cluster_09_sector001_macro]" />
+						<!-- <set_value name="$UncoverShipyardsAndWharfs" exact="true"/> -->
+						<!-- <set_value name="$UncoverTradeStations" exact="true"/> -->
+						<set_value name="$UncoverAllStations" exact="true"/>
+						<include_actions ref="md.LIB_Generic.UncoverMap_SectorsAndGates"/>
+					</actions>
+				</cue>
+
+				<cue name="setup_hq_yololios">
+					<conditions>
+						<event_cue_signalled/>
+					</conditions>
+					<actions>
+
+						<find_sector name="$HQSector" macro="macro.cluster_44_sector001_macro" required="true"/>
+						<find_station name="$HQ" space="$HQSector" owner="faction.player" multiple="false" required="true"/>
+						<!--
+						<create_cue_actor name="$Boron_Mentor" cue="namespace" macro="character_boron_hq_mentor_macro">
+							<page exact="10201"/>
+							<owner exact="faction.civilian"/>
+						<skills>
+							<skill type="management" exact="9"/>
+							<skill type="morale" exact="15"/>
+							<skill type="piloting" exact="9"/>
+							<skill type="engineering" exact="15"/>
+							<skill type="boarding" exact="0"/>
+						</skills>
+					</create_cue_actor>
+					<set_entity_traits entity="$Boron_Mentor" missionactor="true"/>
+					<set_entity_overrides entity="$Boron_Mentor" icon="'specialist'"/>
+					<set_value name="$Boron_Mentor.$x4ep1_boron_dark_tank" exact="true"/>
+					<set_value name="md.$PersistentCharacters.$BosoTa" exact="$Boron_Mentor"/>
+
+
+					<set_value name="$Patch_LabLocationChecked" exact="true" comment="No need to check for this issue on a new game"/>
+
+
+					<find_object_component name="$ResearchModule" macro="macro.landmarks_player_hq_01_research_macro" object="$HQ"/>
+					<set_object_name object="$ResearchModule" page="20104" line="101701" comment="Unknown module to Research Module"/>
+	
+						<find_object_component name="$MentorRoom" macro="macro.room_gen_boronoffice_01_macro" object="$HQ"/>
+						<do_if value="$MentorRoom and $MentorRoom.dynamicinterior">
+							<set_value name="$Interior" exact="$MentorRoom.dynamicinterior"/>
+							<debug_text text="'Setting HQ tank room to persistent'"/>
+							<set_dynamic_interior_persistent object="$HQ" interior="$Interior" persistent="true"/>
+							<do_for_each name="$InteriorRoom" in="$Interior.rooms">
+								<do_if value="$InteriorRoom.type == roomtype.corridor">
+									<set_value name="$Corridor" exact="$InteriorRoom"/>
+									<break/>
+								</do_if>
+							</do_for_each>
+						</do_if>
+
+						<event_player_signal_unlock_finished/>
+
+						<set_value name="$Patch_ResearchWare" exact="ware.research_mod_engine_mk1"/>
+						<do_for_each name="$Patch_Precursor" in="$Patch_ResearchWare.research.precursors.list">
+							<debug_text text="'Adding precursor ' + $Patch_Precursor.id" filter="savegame"/>
+							<add_research ware="$Patch_Precursor"/>
+						</do_for_each>
+
+						<remove_value name="$Patch_ResearchWare"/>
+ -->
+
+
+
+
+					</actions>
+					<cues>
+						<cue name="SetupPlayerShip">
+							<delay exact="1s"/>
+							<actions>
+								<find_dockingbay name="$DockingBays" object="$HQ" checkoperational="true" multiple="true" walkable="true" comment="walkable=true ignores launchtubes!" required="true">
+									<match_any>
+										<match_dock size="tag.dock_s"/>
+									</match_any>
+								</find_dockingbay>
+								<do_if value="$DockingBays.count">
+									<create_ship name="$PlayerShip" sector="$HQ.sector" dock="$DockingBays.random" macro="ship_gen_s_fighter_01_a_macro" capturable="false" commandeerable="false">
+										<owner exact="faction.player" overridenpc="true"/>
+										<loadout ref="x4ep1_gamestart_scientist_nodan"/>
+										<people>
+											<fillpercent exact="0"/>
+										</people>
+									</create_ship>
+								</do_if>
+
+								<find_dockingbay name="$DockingBays" object="$HQ" checkoperational="true" multiple="true" walkable="true" comment="walkable=true ignores launchtubes!" required="true">
+									<match_any>
+										<match_dock size="tag.dock_m"/>
+									</match_any>
+								</find_dockingbay>
+								<do_if value="$DockingBays.count">
+
+									<do_all exact="5">
+
+										<generate_loadout macro="macro.ship_tel_m_bomber_01_a_macro" faction="faction.teladi" wares="[ware.software_flightassistmk1, ware.software_dockmk2, ware.software_scannerlongrangemk2,
+					ware.software_scannerobjectmk3, ware.software_targetmk1, ware.software_trademk1, ware.engine_spl_m_travel_01_mk3, ware.shield_tel_m_standard_01_mk2, ware.turret_tel_m_shotgun_01_mk1, ware.weapon_gen_m_shotgun_01_mk1, ware.thruster_gen_m_combat_01_mk3]" level="1" result="$loadoutescort" />
+										<create_ship name="$minotaurplayerescort" macro="macro.ship_tel_m_bomber_01_a_macro" zone="player.zone">
+											<pilot>
+												<select faction="faction.scaleplate" tags="tag.aipilot"/>
+											</pilot>
+											<owner exact="faction.player" overridenpc="true" />
+											<loadout loadout="$loadoutescort.{1}" />
+											<ammo>
+												<macro ref="eq_arg_satellite_02_macro">
+													<fillamount exact="25"/>
+												</macro>
+											</ammo>
+											<people>
+												<fillpercent min="70" max="95" />
+												<person role="service" weight="40">
+													<select faction="faction.scaleplate" tags="tag.crew"/>
+												</person>
+												<person role="marine" weight="80">
+													<select faction="faction.scaleplate" tags="tag.marine"/>
+												</person>
+											</people>
+											<safepos object="player.ship" radius="1km" min="1km" max="7km"/>
+										</create_ship>
+										<set_skill entity="$minotaurplayerescort.pilot" type="skilltype.piloting" exact="10" />
+										<set_skill entity="$minotaurplayerescort.pilot" type="skilltype.engineering" exact="5" />
+
+									</do_all>
+								</do_if>
+							</actions>
+						</cue>
+
+						<cue name="SetupManager" onfail="cancel">
+							<conditions>
+								<check_value value="$HQ"/>
+							</conditions>
+							<delay exact="1s"/>
+							<actions>
+								<create_control_entity object="$HQ" post="controlpost.manager">
+									<select tags="controlpost.manager.tag" faction="faction.player"/>
+									<owner exact="$HQ.owner"/>
+								</create_control_entity>
+							</actions>
+						</cue>
+
+					</cues>
+				</cue>
+			</cues>
+		</cue>
+	</cues>
+</mdscript>

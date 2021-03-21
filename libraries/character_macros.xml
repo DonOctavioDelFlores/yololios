@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<diff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<add sel="//macros">
+		<macro name="character_player_yololios_macro" class="player">
+			<component ref="character_player_teladi_01" />
+			<properties>
+				<identification name="Yololios Sanduras Rusiris XI" race="teladi" female="false" />
+				<bonemods>
+					<bonemod type="Legs" exact="1.0">
+						<bones>
+							<bone name="Bip01 Pelvis"/>
+						</bones>
+					</bonemod>
+				</bonemods>
+				<spacesuit macro="ship_tel_xs_spacesuit_01_a_macro" />
+				<models>
+					<model type="head" ref="assets/characters/teladi/heads/te_face_01" />
+					<model type="torso" ref="assets/characters/teladi/bodies/te_body_02_01" />
+					<!-- oculos -->
+					<model type="props1" ref="assets/characters/teladi/props/te_prop_head_01_01" />
+					<model type="props2" ref="assets/characters/teladi/props/te_prop_head_03_01" />
+
+					<model type="props3" ref="assets/characters/teladi/props/te_prop_arm_03_03" />
+					<model type="props4" ref="assets/characters/teladi/props/te_prop_torso_02_01" />
+
+					<!--model type="props3" ref="assets/characters/teladi/props/te_prop_cape_01_01" /-->
+				</models>
+			</properties>
+
+			<connections>
+				<connection ref="computer">
+					<macro ref="entity_betty_macro" connection="player" />
+				</connection>
+			</connections>
+		</macro>
+
+	</add>
+</diff>
