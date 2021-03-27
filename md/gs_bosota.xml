@@ -77,79 +77,14 @@
           </do_if>
         </do_if>
       </patch>
-      <patch sinceversion="7">
-        <set_value name="$Patch_ResearchWare" exact="ware.research_mod_engine_mk1"/>
-        <do_if value="$Patch_ResearchWare.research.unlocked or ($HQ? and $HQ.research.{$Patch_ResearchWare}.exists)">
-          <debug_text text="'Player has already researched ' + $Patch_ResearchWare.id + '. Adding precursors as researched.'" filter="savegame"/>
-          <do_for_each name="$Patch_Precursor" in="$Patch_ResearchWare.research.precursors.list">
-            <debug_text text="'Adding precursor ' + $Patch_Precursor.id" filter="savegame"/>
-            <add_research ware="$Patch_Precursor"/>
-          </do_for_each>
-        </do_if>
-
-        <set_value name="$Patch_ResearchWare" exact="ware.research_mod_shield_mk1"/>
-        <do_if value="$Patch_ResearchWare.research.unlocked or ($HQ? and $HQ.research.{$Patch_ResearchWare}.exists)">
-          <debug_text text="'Player has already researched ' + $Patch_ResearchWare.id + '. Adding precursors as researched.'" filter="savegame"/>
-          <do_for_each name="$Patch_Precursor" in="$Patch_ResearchWare.research.precursors.list">
-            <debug_text text="'Adding precursor ' + $Patch_Precursor.id" filter="savegame"/>
-            <add_research ware="$Patch_Precursor"/>
-          </do_for_each>
-        </do_if>
-
-        <set_value name="$Patch_ResearchWare" exact="ware.research_mod_ship_mk1"/>
-        <do_if value="$Patch_ResearchWare.research.unlocked or ($HQ? and $HQ.research.{$Patch_ResearchWare}.exists)">
-          <debug_text text="'Player has already researched ' + $Patch_ResearchWare.id + '. Adding precursors as researched.'" filter="savegame"/>
-          <do_for_each name="$Patch_Precursor" in="$Patch_ResearchWare.research.precursors.list">
-            <debug_text text="'Adding precursor ' + $Patch_Precursor.id" filter="savegame"/>
-            <add_research ware="$Patch_Precursor"/>
-          </do_for_each>
-        </do_if>
-
-        <set_value name="$Patch_ResearchWare" exact="ware.research_mod_weapon_mk1"/>
-        <do_if value="$Patch_ResearchWare.research.unlocked or ($HQ? and $HQ.research.{$Patch_ResearchWare}.exists)">
-          <debug_text text="'Player has already researched ' + $Patch_ResearchWare.id + '. Adding precursors as researched.'" filter="savegame"/>
-          <do_for_each name="$Patch_Precursor" in="$Patch_ResearchWare.research.precursors.list">
-            <debug_text text="'Adding precursor ' + $Patch_Precursor.id" filter="savegame"/>
-            <add_research ware="$Patch_Precursor"/>
-          </do_for_each>
-        </do_if>
-
-        <remove_value name="$Patch_ResearchWare"/>
-      </patch>
-      <patch sinceversion="8">
-        <do_if value="$MissionCue.hasmission">
-          <do_if value="@$BoronMet">
-            <update_mission cue="$MissionCue" icon="'briefing_boso_ta_01'" iconcaption="{30201,2}"/>
-          </do_if>
-          <do_else>
-            <update_mission cue="$MissionCue" icon="'briefing_boso_ta_02'" iconcaption="{30201,2}"/>
-          </do_else>
-        </do_if>
-      </patch>
-      <patch sinceversion="9">
-        <set_value name="$SignalLeakStationFactions" exact="[faction.argon, faction.antigone, faction.teladi, faction.ministry, faction.paranid, faction.holyorder, faction.scaleplate, faction.alliance]"/>
-      </patch>
-      <patch sinceversion="10">
-        <do_if value="player.module == 'yololios_gamestart'">
-          <set_value name="md.Signal_Leaks.Manager.$SuppressSignalLeakGeneration" exact="false"/>
-        </do_if>
-      </patch>
-      <patch sinceversion="11">
-        <!--Remove never used values copied from actual subscription missions-->
-        <remove_value name="$ThreadOffers"/>
-        <remove_value name="$ThreadDefinitions"/>
-        <remove_value name="$ActiveThreads"/>
-        <remove_value name="$MissionOffers"/>
-        <remove_value name="$ActiveMissions"/>
-        <remove_value name="$MissionDefinitions"/>
-      </patch>
+            
       <cues>
         <cue name="Debug_Create_HQ">
           <conditions>
             <event_cue_signalled/>
           </conditions>
           <actions>
-            <create_station name="$HQ" macro="macro.station_pla_headquarters_base_01_macro" sector="$HQSector" constructionplan="'x4ep1_playerheadquarters'" owner="faction.player" state="componentstate.operational">
+            <create_station name="$HQ" macro="macro.station_pla_headquarters_base_01_macro" sector="$HQSector" constructionplan="'yololios_hq_plan'" owner="faction.player" state="componentstate.operational">
               <safepos value="$HQPosition"/>
             </create_station>
             <include_actions ref="SetupHQ"/>
@@ -158,70 +93,7 @@
             <set_object_name object="$ResearchModule" page="20104" line="101701" comment="Unknown module to Research Module"/>
           </actions>
           <force name="Create_HQ"/>
-        </cue>
-
-        <cue name="Debug_Create_HQ_With_Effects">
-          <conditions>
-            <event_cue_signalled/>
-          </conditions>
-          <actions>
-            <do_if value="player.ship">
-              <warp object="player.ship" sector="$HQSector">
-                <position x="$HQPosition.x" y="$HQPosition.y" z="$HQPosition.z - 8km"/>
-              </warp>
-            </do_if>
-            <do_else>
-              <create_ship macro="macro.ship_gen_xs_escapepod_01_a_macro" name="$TempEffectObject" sector="$HQSector">
-                <owner exact="faction.ownerless"/>
-                <position value="$HQPosition"/>
-              </create_ship>
-            </do_else>
-          </actions>
-          <force name="Create_HQ_With_Effects"/>
-          <cues>
-            <cue name="Debug_Create_HQ_With_Effects_Start_Effects">
-              <delay exact="10s"/>
-              <actions>
-                <do_if value="@$TempEffectObject.exists">
-                  <set_value name="$HQZone" exact="$TempEffectObject.zone"/>
-                  <set_value name="$EffectPos" exact="$TempEffectObject.position"/>
-                </do_if>
-                <do_else>
-                  <set_value name="$HQZone" exact="player.zone"/>
-                  <create_position name="$EffectPos" object="$HQSector" space="$HQZone" value="$HQPosition"/>
-                </do_else>
-                <debug_text text="'HQ Zone will be: ' +  + ' ' + $HQZone.knownname + ' playing effect at ' + $EffectPos"/>
-
-                <!--Add the effect name here-->
-                <add_effect object="$HQZone" effect="'hq_warpin'">
-                  <position value="$EffectPos"/>
-                </add_effect>
-
-                <set_value name="$EffectLength" exact="11s"/>
-                <do_if value="@$TempEffectObject.exists">
-                  <destroy_object object="$TempEffectObject"/>
-                </do_if>
-              </actions>
-              <cues>
-                <cue name="Debug_Create_HQ_With_Effects_Ending">
-                  <conditions>
-                    <event_cue_completed cue="Debug_Create_HQ_With_Effects_Start_Effects"/>
-                  </conditions>
-                  <delay exact="$EffectLength"/>
-                  <actions>
-                    <create_station name="$HQ" macro="macro.station_pla_headquarters_base_01_macro" sector="$HQSector" constructionplan="'x4ep1_playerheadquarters'" owner="faction.player" state="componentstate.operational">
-                      <safepos value="$HQPosition"/>
-                    </create_station>
-                    <include_actions ref="SetupHQ"/>
-
-                    <find_object_component name="$ResearchModule" macro="macro.landmarks_player_hq_01_research_macro" object="$HQ"/>
-                    <set_object_name object="$ResearchModule" page="20104" line="101701" comment="Unknown module to Research Module"/>
-                  </actions>
-                </cue>
-              </cues>
-            </cue>
-          </cues>
-        </cue>
+        </cue>        
 
         <cue name="Debug_Create_HQ_With_Boso">
           <conditions>
@@ -251,7 +123,7 @@
           <actions>
             <set_value name="this.$IncludeDal" exact="@event.param"/>
             <set_value name="$DebugChance" exact="100"/>
-            <create_station name="$HQ" macro="macro.station_pla_headquarters_base_01_macro" sector="$HQSector" constructionplan="'x4ep1_playerheadquarters'" owner="faction.player" state="componentstate.operational">
+            <create_station name="$HQ" macro="macro.station_pla_headquarters_base_01_macro" sector="$HQSector" constructionplan="'yololios_hq_plan'" owner="faction.player" state="componentstate.operational">
               <safepos value="$HQPosition"/>
             </create_station>
             <include_actions ref="SetupHQ"/>

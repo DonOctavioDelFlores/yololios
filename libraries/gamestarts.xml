@@ -19,7 +19,7 @@
 				<item name="     " value="All sectors from the original Young Gun gamestart are exposed" />
 				<item name="Comments:" value="This game start is targeted at those players who want a somewhat vanilla start, with a fast ship and some decent weapons. The Super Highways have been removed." />
 			</info>
-			<location galaxy="xu_ep2_universe_macro" sector="cluster_44_sector001_macro" station="station_pla_headquarters_base_01_macro">
+			<location galaxy="xu_ep2_universe_macro" sector="cluster_44_sector001_macro" station="yololios_hq">
 				<player disembarked="true">
 					<position x="-0.05115" y="1.806" z="-2.541"/>
 					<rotation yaw="179.69951" pitch="-1.83378"/>

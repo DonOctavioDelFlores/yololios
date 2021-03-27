@@ -19,11 +19,11 @@
 					<model type="head" ref="assets/characters/teladi/heads/te_face_01" />
 					<model type="torso" ref="assets/characters/teladi/bodies/te_body_02_01" />
 					<!-- oculos -->
-					<model type="props1" ref="assets/characters/teladi/props/te_prop_head_01_01" />
-					<model type="props2" ref="assets/characters/teladi/props/te_prop_head_03_01" />
+					<!-- model type="props1" ref="assets/characters/teladi/props/te_prop_head_01_01" / -->
+					<model type="props1" ref="assets/characters/teladi/props/te_prop_head_03_01" />
 
-					<model type="props3" ref="assets/characters/teladi/props/te_prop_arm_03_03" />
-					<model type="props4" ref="assets/characters/teladi/props/te_prop_torso_02_01" />
+					<model type="props2" ref="assets/characters/teladi/props/te_prop_arm_03_03" />
+					<model type="props3" ref="assets/characters/teladi/props/te_prop_torso_02_01" />
 
 					<!--model type="props3" ref="assets/characters/teladi/props/te_prop_cape_01_01" /-->
 				</models>
