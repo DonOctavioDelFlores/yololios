@@ -65,27 +65,24 @@
 						<cue name="SetupPlayerShip">
 							<delay exact="1s"/>
 							<actions>
+								<generate_loadout macro="macro.ship_tel_m_bomber_01_a_macro" faction="faction.teladi" wares="[ware.software_flightassistmk1, ware.software_dockmk2, ware.software_scannerlongrangemk2, ware.software_scannerobjectmk3, ware.software_targetmk1, ware.software_trademk1, ware.engine_spl_m_travel_01_mk3, ware.shield_tel_m_standard_01_mk2, ware.turret_tel_m_shotgun_01_mk1, ware.weapon_gen_m_shotgun_01_mk1, ware.thruster_gen_m_combat_01_mk3]" level="1" result="$loadoutescort" />
 								<find_dockingbay name="$DockingBays" object="$HQ" checkoperational="true" multiple="true" walkable="true" comment="walkable=true ignores launchtubes!" required="true">
 									<match_any>
-										<match_dock size="tag.dock_s"/>
+										<match_dock size="tag.dock_m"/>
 									</match_any>
 								</find_dockingbay>
 								<do_if value="$DockingBays.count">
-									<create_ship name="$PlayerShip" sector="$HQ.sector" dock="$DockingBays.random" macro="ship_gen_s_fighter_01_a_macro" capturable="false" commandeerable="false">
+									<create_ship name="$PlayerShip" sector="$HQ.sector" dock="$DockingBays.random" macro="ship_tel_m_bomber_01_a_macro" capturable="false" commandeerable="false">
 										<owner exact="faction.player" overridenpc="true"/>
-										<loadout ref="x4ep1_gamestart_scientist_nodan"/>
+										<loadout loadout="$loadoutescort.{1}" />
 										<people>
-											<fillpercent exact="0"/>
+											<fillpercent exact="50"/>
 										</people>
 									</create_ship>
 								</do_if>
 
-
-
 								<do_all exact="5">
 
-									<generate_loadout macro="macro.ship_tel_m_bomber_01_a_macro" faction="faction.teladi" wares="[ware.software_flightassistmk1, ware.software_dockmk2, ware.software_scannerlongrangemk2,
-					ware.software_scannerobjectmk3, ware.software_targetmk1, ware.software_trademk1, ware.engine_spl_m_travel_01_mk3, ware.shield_tel_m_standard_01_mk2, ware.turret_tel_m_shotgun_01_mk1, ware.weapon_gen_m_shotgun_01_mk1, ware.thruster_gen_m_combat_01_mk3]" level="1" result="$loadoutescort" />
 									<create_ship name="$minotaurplayerescort" macro="macro.ship_tel_m_bomber_01_a_macro" zone="player.zone">
 										<pilot>
 											<select faction="faction.scaleplate" tags="tag.aipilot"/>

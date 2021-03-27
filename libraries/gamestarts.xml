@@ -23,8 +23,7 @@
 				<player disembarked="true">
 					<position x="-0.05115" y="1.806" z="-2.541"/>
 					<rotation yaw="179.69951" pitch="-1.83378"/>
-				</player>
-				<interior module="landmarks_player_hq_01_research_macro" corridor="room_arg_corridor_01_macro" door="con_room_01" room="room_gen_boronoffice_01_macro" name="{20007,1171}" />
+				</player>				
 			</location>
 			<player macro="character_player_yololios_macro" money="12500000">
 				<inventory>
