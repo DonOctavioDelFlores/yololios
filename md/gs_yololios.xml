@@ -7,8 +7,7 @@
 				<event_cue_signalled cue="md.Setup.GameStart"/>
 			</conditions>
 			<actions>
-				<signal_cue cue="setup_yololios"/>
-				<signal_cue cue="setup_hq_yololios"/>
+				<signal_cue cue="setup_yololios"/>				
 			</actions>
 			<cues>
 				<cue name="setup_yololios">
@@ -16,118 +15,15 @@
 						<event_cue_signalled/>
 					</conditions>
 					<actions>
-						<set_faction_known faction="faction.antigone" known="true" />
-						<set_faction_known faction="faction.argon" known="true" />
-						<set_faction_known faction="faction.hatikvah" known="true" />
-						<set_faction_known faction="faction.holyorder" known="true" />
-						<set_faction_known faction="faction.ministry" known="true"/>
-						<set_faction_known faction="faction.scaleplate" known="true" />
-						<set_faction_known faction="faction.teladi" known="true" />
-						<set_faction_known faction="faction.split" known="true"/>
-
 						<set_value name="$InitialMap" exact="[
-						macro.cluster_44_sector001_macro,
-						macro.cluster_43_sector001_macro,
-						macro.cluster_06_sector001_macro,
-						macro.cluster_42_sector001_macro,
-						macro.cluster_42_sector002_macro, 
-						macro.cluster_19_sector001_macro,
-						macro.cluster_19_sector002_macro,
-						macro.cluster_20_sector001_macro,
-						macro.cluster_18_sector001_macro,
-						macro.cluster_10_sector001_macro,
-						macro.cluster_22_sector001_macro,
-						macro.cluster_11_sector001_macro,
-						macro.cluster_24_sector001_macro,
-						macro.cluster_12_sector001_macro,
-						macro.cluster_13_sector001_macro,
-						macro.cluster_14_sector001_macro,
-						macro.cluster_29_sector001_macro,
-						macro.cluster_09_sector001_macro]" />
+						macro.cluster_424_sector001_macro,
+						macro.cluster_44_sector001_macro]" />
 						<!-- <set_value name="$UncoverShipyardsAndWharfs" exact="true"/> -->
 						<!-- <set_value name="$UncoverTradeStations" exact="true"/> -->
 						<set_value name="$UncoverAllStations" exact="true"/>
 						<include_actions ref="md.LIB_Generic.UncoverMap_SectorsAndGates"/>
 					</actions>
-				</cue>
-
-				<cue name="setup_hq_yololios">
-					<conditions>
-						<event_cue_signalled/>
-					</conditions>
-					<actions>
-
-						<find_sector name="$HQSector" macro="macro.cluster_44_sector001_macro" required="true"/>
-						<find_station name="$HQ" space="$HQSector" owner="faction.player" multiple="false" required="true"/>
-
-					</actions>
-					<cues>
-						<cue name="SetupPlayerShip">
-							<delay exact="1s"/>
-							<actions>
-								<generate_loadout macro="macro.ship_tel_m_bomber_01_a_macro" faction="faction.teladi" wares="[ware.software_flightassistmk1, ware.software_dockmk2, ware.software_scannerlongrangemk2, ware.software_scannerobjectmk3, ware.software_targetmk1, ware.software_trademk1, ware.engine_spl_m_travel_01_mk3, ware.shield_tel_m_standard_01_mk2, ware.turret_tel_m_shotgun_01_mk1, ware.weapon_gen_m_shotgun_01_mk1, ware.thruster_gen_m_combat_01_mk3]" level="1" result="$loadoutescort" />
-								<find_dockingbay name="$DockingBays" object="$HQ" checkoperational="true" multiple="true" walkable="true" comment="walkable=true ignores launchtubes!" required="true">
-									<match_any>
-										<match_dock size="tag.dock_m"/>
-									</match_any>
-								</find_dockingbay>
-								<do_if value="$DockingBays.count">
-									<create_ship name="$PlayerShip" sector="$HQ.sector" dock="$DockingBays.random" macro="ship_tel_m_bomber_01_a_macro" capturable="false" commandeerable="false">
-										<owner exact="faction.player" overridenpc="true"/>
-										<loadout loadout="$loadoutescort.{1}" />
-										<people>
-											<fillpercent exact="50"/>
-										</people>
-									</create_ship>
-								</do_if>
-
-								<do_all exact="5">
-
-									<create_ship name="$minotaurplayerescort" macro="macro.ship_tel_m_bomber_01_a_macro" zone="player.zone">
-										<pilot>
-											<select faction="faction.scaleplate" tags="tag.aipilot"/>
-										</pilot>
-										<owner exact="faction.player" overridenpc="true" />
-										<loadout loadout="$loadoutescort.{1}" />
-										<ammo>
-											<macro ref="eq_arg_satellite_02_macro">
-												<fillamount exact="25"/>
-											</macro>
-										</ammo>
-										<people>
-											<fillpercent min="70" max="95" />
-											<person role="service" weight="40">
-												<select faction="faction.scaleplate" tags="tag.crew"/>
-											</person>
-											<person role="marine" weight="80">
-												<select faction="faction.scaleplate" tags="tag.marine"/>
-											</person>
-										</people>
-										<safepos object="player.ship" radius="1km" min="1km" max="7km"/>
-									</create_ship>
-									<set_skill entity="$minotaurplayerescort.pilot" type="skilltype.piloting" exact="10" />
-									<set_skill entity="$minotaurplayerescort.pilot" type="skilltype.engineering" exact="5" />
-
-								</do_all>
-
-							</actions>
-						</cue>
-
-						<cue name="SetupManager" onfail="cancel">
-							<conditions>
-								<check_value value="$HQ"/>
-							</conditions>
-							<delay exact="1s"/>
-							<actions>
-								<create_control_entity object="$HQ" post="controlpost.manager">
-									<select tags="controlpost.manager.tag" faction="faction.player"/>
-									<owner exact="$HQ.owner"/>
-								</create_control_entity>
-							</actions>
-						</cue>
-
-					</cues>
-				</cue>
+				</cue>				
 			</cues>
 		</cue>
 	</cues>

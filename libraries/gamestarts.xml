@@ -20,12 +20,10 @@
 				<item name="Comments:" value="This game start is targeted at those players who want a somewhat vanilla start, with a fast ship and some decent weapons. The Super Highways have been removed." />
 			</info>
 			<location galaxy="xu_ep2_universe_macro" sector="cluster_44_sector001_macro" station="yololios_hq">
-				<player disembarked="true">
-					<position x="-0.05115" y="1.806" z="-2.541"/>
-					<rotation yaw="179.69951" pitch="-1.83378"/>
-				</player>				
+
 			</location>
 			<player macro="character_player_yololios_macro" money="12500000">
+				<ship macro="ship_atf_l_destroyer_01_a_macro"/>
 				<inventory>
 					<ware ware="weapon_gen_spacesuit_laser_01_mk1"/>
 					<ware ware="weapon_gen_spacesuit_demolition_01_mk1"/>
