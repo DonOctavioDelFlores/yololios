@@ -78,21 +78,49 @@
       </patch>
             
       <cues>
+        <cue name="Debug_Create_HQ">
+          <conditions>
+            <event_cue_signalled/>
+          </conditions>
+          <actions>
+            <create_station name="$HQ" macro="macro.station_pla_headquarters_base_01_macro" sector="$HQSector" constructionplan="'yololios_hq_plan'" owner="faction.player" state="componentstate.operational">
+              <safepos value="$HQPosition"/>
+            </create_station>
+            <include_actions ref="SetupHQ"/>
+
+            <find_object_component name="$ResearchModule" macro="macro.landmarks_player_hq_01_research_macro" object="$HQ"/>
+            <set_object_name object="$ResearchModule" page="20104" line="101701" comment="Unknown module to Research Module"/>
+          </actions>
+          <force name="Create_HQ"/>
+        </cue>        
+
         <cue name="Debug_Create_HQ_With_Boso">
           <conditions>
             <event_cue_signalled/>
           </conditions>
           <actions>
-            <signal_cue_instantly cue="Debug_Create_HQ_With_Mentors"/>
+            <signal_cue_instantly cue="Debug_Create_HQ_With_Mentors" param="false"/>
           </actions>
           <force name="Create_HQ_With_Boso"/>
-        </cue>        
-        
+        </cue>
+
+        <cue name="Debug_Create_HQ_With_Boso_And_Dal">
+          <conditions>
+            <event_cue_signalled/>
+          </conditions>
+          <actions>
+            <signal_cue_instantly cue="Debug_Create_HQ_With_Mentors" param="true"/>
+          </actions>
+          <force name="Create_HQ_With_Boso_And_Dal"/>
+        </cue>
+
+        <!--event.param = bool - include Dal?-->
         <cue name="Debug_Create_HQ_With_Mentors">
           <conditions>
             <event_cue_signalled/>
           </conditions>
-          <actions>            
+          <actions>
+            <set_value name="this.$IncludeDal" exact="@event.param"/>
             <set_value name="$DebugChance" exact="100"/>
             <create_station name="$HQ" macro="macro.station_pla_headquarters_base_01_macro" sector="$HQSector" constructionplan="'yololios_hq_plan'" owner="faction.player" state="componentstate.operational">
               <safepos value="$HQPosition"/>
@@ -116,7 +144,35 @@
                   <signal_cue cue="Manage_Boron_Tank_Room"/>
                   <set_entity_traits entity="$Boron_Mentor" customhandler="true"/>
                 </do_if>
-              </actions>              
+              </actions>
+              <cues>
+                <cue name="Debug_Create_HQ_With_Mentors_Dal" checkinterval="1s">
+                  <conditions>
+                    <check_value value="@Debug_Create_HQ_With_Mentors.$IncludeDal and $MentorRoom.exists and @md.Story_Diplomacy_Intro.Start.$Dal.isclass.npc"/>
+                  </conditions>
+                  <actions>
+                    <set_value name="$Dal" exact="md.Story_Diplomacy_Intro.Start.$Dal"/>
+                    <debug_text text="'attempting to spawn Dal in ' + $HQ" chance="$DebugChance"/>
+
+                    <set_entity_traits entity="$Dal" missionactor="true" customhandler="true"/>
+                    <set_entity_role entity="$Dal" role="entityrole.service"/>
+                    <set_entity_role_object entity="$Dal" object="$HQ"/>
+                    <set_value name="$Dal.$Stay" exact="true"/>
+
+                    <!--Add placement definitions-->
+                    <signal_cue_instantly cue="md.NPC_Instantiation.NPC_Placement_Manager" param="['add_definition', $Dal, 
+                                        table[
+                                        $requestercue = namespace,
+                                        $location = $MentorRoom,
+                                        $priority = 80,
+                                        $position = position.[-3.03m, 0.0424m, -5.224m],
+                                        $rotation = rotation.[100deg, 0deg, 0deg],
+                                        $debugchance = $DebugChance,
+                                        $debugcaller = if $DebugChance == 100 then this else null]
+                                        ]"/>
+                  </actions>
+                </cue>
+              </cues>
             </cue>
           </cues>
         </cue>
@@ -130,6 +186,18 @@
             <signal_cue cue="Phase_Research"/>
           </actions>
           <force name="Unlock_HQ_Research"/>
+        </cue>
+
+        <cue name="Debug_Destroy_HQ">
+          <conditions>
+            <event_cue_signalled/>
+          </conditions>
+          <actions>
+            <do_if value="$HQ.exists">
+              <destroy_object object="$HQ" explosion="false"/>
+            </do_if>
+          </actions>
+          <force name="Destroy_HQ"/>
         </cue>
 
         <cue name="Debug_Add_Boron_To_HQ">

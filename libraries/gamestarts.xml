@@ -20,10 +20,43 @@
 				<item name="Comments:" value="This game start is targeted at those players who want a somewhat vanilla start, with a fast ship and some decent weapons. The Super Highways have been removed." />
 			</info>
 			<location galaxy="xu_ep2_universe_macro" sector="cluster_44_sector001_macro" station="yololios_hq">
-
 			</location>
 			<player macro="character_player_yololios_macro" money="12500000">
-				<ship macro="ship_atf_l_destroyer_01_a_macro"/>
+				<ship macro="ship_ter_l_destroyer_01_a_macro">
+					<loadout>
+						<macros>
+							<engine macro="engine_ter_l_allround_01_mk1_macro" path="../con_engine_02"/>
+							<engine macro="engine_ter_l_allround_01_mk1_macro" path="../con_engine_01"/>
+							<shield macro="shield_ter_l_standard_01_mk3_macro" path="../con_shieldgen_l_03"/>
+							<weapon macro="weapon_ter_l_destroyer_01_mk1_macro" path="../con_weapon_01"/>
+							<weapon macro="weapon_ter_l_destroyer_01_mk1_macro" path="../con_weapon_02"/>
+						</macros>
+						<groups>
+							<shields macro="shield_ter_m_standard_02_mk2_macro" path=".." group="group_back_mid_mid"/>
+							<shields macro="shield_ter_m_standard_02_mk2_macro" path=".." group="group_front_down_mid"/>
+							<shields macro="shield_ter_m_standard_02_mk2_macro" path=".." group="group_back_mid_up"/>
+							<shields macro="shield_ter_m_standard_02_mk2_macro" path=".." group="group_back_down_mid"/>
+							<shields macro="shield_ter_m_standard_02_mk2_macro" path=".." group="group_down_mid_left"/>
+							<shields macro="shield_ter_m_standard_02_mk2_macro" path=".." group="group_mid_up_left"/>
+							<shields macro="shield_ter_m_standard_02_mk2_macro" path=".." group="group_mid_up_left_2"/>
+							<shields macro="shield_ter_m_standard_02_mk2_macro" path=".." group="group_mid_right_up_2"/>
+							<shields macro="shield_ter_m_standard_02_mk2_macro" path=".." group="group_down_mid_right"/>
+							<shields macro="shield_ter_m_standard_02_mk2_macro" path=".." group="group_mid_right_up"/>
+							<turrets macro="turret_ter_l_beam_01_mk1_macro" path=".." group="group_front_down_mid"/>
+							<turrets macro="turret_ter_m_gatling_02_mk1_macro" path=".." group="group_back_mid_up"/>
+							<turrets macro="turret_ter_m_gatling_02_mk1_macro" path=".." group="group_back_down_mid"/>
+							<turrets macro="turret_ter_m_gatling_02_mk1_macro" path=".." group="group_down_mid_left" exact="2"/>
+							<turrets macro="turret_ter_m_gatling_02_mk1_macro" path=".." group="group_mid_up_left" exact="2"/>
+							<turrets macro="turret_ter_l_beam_01_mk1_macro" path=".." group="group_mid_up_left_2"/>
+							<turrets macro="turret_ter_l_beam_01_mk1_macro" path=".." group="group_mid_right_up_2"/>
+							<turrets macro="turret_ter_m_laser_02_mk1_macro" path=".." group="group_down_mid_right" exact="2"/>
+							<turrets macro="turret_ter_m_laser_02_mk1_macro" path=".." group="group_mid_right_up" exact="2"/>
+						</groups>
+						<virtualmacros>
+							<thruster macro="thruster_gen_l_allround_01_mk3_macro"/>
+						</virtualmacros>
+					</loadout>
+				</ship>
 				<inventory>
 					<ware ware="weapon_gen_spacesuit_laser_01_mk1"/>
 					<ware ware="weapon_gen_spacesuit_demolition_01_mk1"/>
