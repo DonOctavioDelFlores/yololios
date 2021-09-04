@@ -76,7 +76,7 @@
           </do_if>
         </do_if>
       </patch>
-            
+
       <cues>
         <cue name="Debug_Create_HQ">
           <conditions>
@@ -92,7 +92,7 @@
             <set_object_name object="$ResearchModule" page="20104" line="101701" comment="Unknown module to Research Module"/>
           </actions>
           <force name="Create_HQ"/>
-        </cue>        
+        </cue>
 
         <cue name="Debug_Create_HQ_With_Boso">
           <conditions>
@@ -188,18 +188,6 @@
           <force name="Unlock_HQ_Research"/>
         </cue>
 
-        <cue name="Debug_Destroy_HQ">
-          <conditions>
-            <event_cue_signalled/>
-          </conditions>
-          <actions>
-            <do_if value="$HQ.exists">
-              <destroy_object object="$HQ" explosion="false"/>
-            </do_if>
-          </actions>
-          <force name="Destroy_HQ"/>
-        </cue>
-
         <cue name="Debug_Add_Boron_To_HQ">
           <conditions>
             <event_cue_signalled/>
@@ -236,7 +224,7 @@
             <do_else>
               <debug_text text="'Research was already unlocked but patching this cue to be complete.'" filter="savegame"/>
             </do_else>
-          </actions>          
+          </actions>
         </cue>
 
         <cue name="Initialise" onfail="cancel">
@@ -272,7 +260,7 @@
                 <signal_cue cue="UnlockResearch"/>
                 <set_value name="$BoronMet" exact="true"/>
               </do_if>
-            </do_if>            
+            </do_if>
           </actions>
         </cue>
 
@@ -385,7 +373,7 @@
                                         $debugcaller = if $DebugChance == 100 then this else null]
                                         ]"/>
                 </do_if>
-              </actions>              
+              </actions>
             </cue>
 
             <!--event.param = interior to be killed-->
@@ -404,7 +392,7 @@
               </actions>
             </cue>
           </cues>
-        </cue>                                  
+        </cue>
       </cues>
     </cue>
   </cues>
