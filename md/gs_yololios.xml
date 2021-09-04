@@ -7,7 +7,7 @@
 				<event_cue_signalled cue="md.Setup.GameStart"/>
 			</conditions>
 			<actions>
-				<signal_cue cue="setup_yololios"/>				
+				<signal_cue cue="setup_yololios"/>
 			</actions>
 			<cues>
 				<cue name="setup_yololios">
@@ -23,7 +23,7 @@
 						<set_value name="$UncoverAllStations" exact="true"/>
 						<include_actions ref="md.LIB_Generic.UncoverMap_SectorsAndGates"/>
 					</actions>
-				</cue>				
+				</cue>
 			</cues>
 		</cue>
 	</cues>
