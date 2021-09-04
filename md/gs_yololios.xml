@@ -15,8 +15,8 @@
 						<event_cue_signalled/>
 					</conditions>
 					<actions>
-						<set_value name="$InitialMap" exact="[						
-						macro.cluster_44_sector001_macro]" />
+						<set_value name="$InitialMap" exact="[
+						macro.cluster_25_sector001_macro]" />
 						<set_value name="$UncoverAllStations" exact="true"/>
 						<include_actions ref="md.LIB_Generic.UncoverMap_SectorsAndGates"/>
 
@@ -29,30 +29,34 @@
 						<add_licence faction="faction.player" licencefaction="faction.hatikvah" type="capitalequipment"/>
 						<add_licence faction="faction.player" licencefaction="faction.hatikvah" type="capitalship"/>
 
+						<set_value name="$Ship_Amount" exact="5"/>
+						<set_value name="$minotaurplayerescort" exact="null"/>
 
-						<create_ship name="$minotaurplayerescort" macro="macro.ship_par_s_heavyfighter_01_a_macro" zone="player.zone">
-							<pilot>
-								<select faction="faction.scaleplate" tags="tag.aipilot"/>
-							</pilot>
-							<owner exact="faction.player" overridenpc="true" />
-							<ammo>
-								<macro ref="countermeasure_flares_01_macro">
-									<fillamount exact="5"/>
-								</macro>
-							</ammo>
-							<people>
-								<fillpercent min="70" max="95" />
-								<person role="service" weight="40">
-									<select faction="faction.scaleplate" tags="tag.crew"/>
-								</person>
-								<person role="marine" weight="80">
-									<select faction="faction.scaleplate" tags="tag.marine"/>
-								</person>
-							</people>
-							<safepos object="player.ship" radius="1km" min="1km" max="7km"/>
-						</create_ship>
-						<set_skill entity="$minotaurplayerescort.pilot" type="skilltype.piloting" exact="10" />
-						<set_skill entity="$minotaurplayerescort.pilot" type="skilltype.engineering" exact="5" />
+						<do_all exact="$Ship_Amount">
+							<create_ship name="$minotaurplayerescort" macro="macro.ship_par_s_heavyfighter_01_a_macro" zone="player.zone">
+								<pilot>
+									<select faction="faction.scaleplate" tags="tag.aipilot"/>
+								</pilot>
+								<owner exact="faction.player" overridenpc="true" />
+								<ammo>
+									<macro ref="countermeasure_flares_01_macro">
+										<fillamount exact="5"/>
+									</macro>
+								</ammo>
+								<people>
+									<fillpercent min="70" max="95" />
+									<person role="service" weight="40">
+										<select faction="faction.scaleplate" tags="tag.crew"/>
+									</person>
+									<person role="marine" weight="80">
+										<select faction="faction.scaleplate" tags="tag.marine"/>
+									</person>
+								</people>
+								<safepos object="player.ship" radius="1km" min="1km" max="7km"/>
+							</create_ship>
+							<set_skill entity="$minotaurplayerescort.pilot" type="skilltype.piloting" exact="10" />
+							<set_skill entity="$minotaurplayerescort.pilot" type="skilltype.engineering" exact="5" />
+						</do_all>
 
 					</actions>
 				</cue>
