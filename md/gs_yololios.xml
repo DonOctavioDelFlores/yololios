@@ -29,11 +29,11 @@
 						<add_licence faction="faction.player" licencefaction="faction.hatikvah" type="capitalequipment"/>
 						<add_licence faction="faction.player" licencefaction="faction.hatikvah" type="capitalship"/>
 
-						<set_value name="$Ship_Amount" exact="5"/>
+						<set_value name="$Ship_Amount" exact="1"/>
 						<set_value name="$minotaurplayerescort" exact="null"/>
 
 						<do_all exact="$Ship_Amount">
-							<create_ship name="$minotaurplayerescort" macro="macro.ship_par_s_heavyfighter_01_a_macro" zone="player.zone">
+							<create_ship name="$minotaurplayerescort" macro="macro.ship_arg_l_centaur_a_macro" zone="player.zone">
 								<pilot>
 									<select faction="faction.scaleplate" tags="tag.aipilot"/>
 								</pilot>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+	<replace sel="factions/faction[@id='scaleplate']"/>
+	<faction id="scaleplate" name="{20203,1001}" description="{20203,1002}" shortname="{20203,1003}" prefixname="{20203,1004}" primaryrace="teladi" behaviourset="default" known="1" tags="economic protective watchdoguser privateloadout privateship plunder">
+		<color r="137" g="130" b="58" />
+		<icon active="faction_scaleplate" inactive="faction_scaleplate" />
+		<licences>
+			<licence type="capitalequipment" name="{20207,2201}" icon="bse_star" minrelation="0.1" precursor="ceremonyally" price="0" />
+			<licence type="capitalship" name="{20207,3171}" icon="bse_star" minrelation="0.1" precursor="ceremonyally" price="0" />
+			<licence type="ceremonyally" name="{20207,5171}" minrelation="0.1" price="0" />
+			<licence type="ceremonyfriend" name="{20207,5161}" minrelation="0.01" price="0" />
+			<licence type="generaluseequipment" name="{20207,2311}" minrelation="-0.01" price="0" />
+			<licence type="generaluseship" name="{20207,2351}" minrelation="-0.01" price="0" />
+			<licence type="militaryequipment" name="{20207,2191}" icon="bse_star" minrelation="0.01" precursor="ceremonyfriend" price="0" />
+			<licence type="militaryship" name="{20207,3161}" icon="bse_star" minrelation="0.01" precursor="ceremonyfriend" price="0" />
+			<licence type="shipsalecontract" name="{20207,9081}" description="{20207,9082}" minrelation="0.1" precursor="ceremonyally" price="1" tags="hidden" />
+			<licence type="station_illegal" name="{20207,7491}" minrelation="-0.01" price="0" tags="hidden" />
+			<licence type="subgroupfriend" name="{20207,6081}" minrelation="0.01" precursor="ceremonyfriend" price="0" />
+			<licence type="tradesubscription" name="{20207,4081}" description="{20207,4082}" minrelation="0.1" precursor="ceremonyally" price="1000000" />
+			<licence type="capitalequipment" factions="paranid teladi argon trinity buccaneers" />
+			<licence type="generaluseequipment" factions="paranid teladi argon trinity buccaneers" />
+			<licence type="militaryequipment" factions="paranid teladi argon trinity buccaneers" />
+			<licence type="capitalship" factions="teladi argon antigone ministry" />
+			<licence type="generaluseship" factions="teladi argon antigone ministry hatikvah" />
+			<licence type="militaryship" factions="teladi argon antigone ministry" />
+			<licence type="station_illegal" factions="teladi" />
+		</licences>
+		<relations locked="0">
+			<relation faction="antigone" relation="-0.1" />
+			<relation faction="argon" relation="-0.32" />
+			<relation faction="buccaneers" relation="0.011" />
+			<relation faction="criminal" relation="-0.5" />
+			<relation faction="holyorder" relation="-0.32" />
+			<relation faction="khaak" relation="-1" />
+			<relation faction="ministry" relation="-0.32" />
+			<relation faction="paranid" relation="-0.32" />
+			<relation faction="player" relation="0.0032" />
+			<relation faction="smuggler" relation="-0.06" />
+			<relation faction="trinity" relation="-0.32" />
+			<relation faction="xenon" relation="-1" />
+		</relations>
+		<signals>
+			<response signal="foundlockbox" response="collect" />
+			<response signal="policehalt" response="attack" />
+		</signals>
+	</faction>
+</replace>
+</diff>
