@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <content id="yololios" name="Yololios" description="Yololios" author="Yololios" version="0.1" date="2020-10-02" save="0" enabled="1">
- <text language="07" name="Yololios" description="Yololios" author="Yololios" />
- <text language="33" name="Yololios" description="Yololios" author="Yololios" />
  <text language="44" name="Yololios" description="Yololios" author="Yololios" />
- <text language="49" name="Yololios" description="Yololios" author="Yololios" />
- <text language="47" name="Yololios" description="Yololios" author="Yololios" />
 </content>

@@ -1,15 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<mdscript name="gs_bosota"
+<mdscript name="SetupBoso"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
   <cues>
 
-    <cue name="Start" namespace="this" version="11">
+    <cue name="Start" namespace="this" version="1">
       <conditions>
         <event_cue_signalled cue="md.Setup.Start" />
       </conditions>
-      <actions>
-        <set_value name="$DebugChance" exact="0"/>
-
+      <actions>        
         <set_value name="$Page" exact="30201" comment="Mentor Mission page"/>
         <set_value name="$MissionGroup" exact="missiongroup.mentor_plot"/>
         <set_value name="$CurrentPhase" exact="null"/>

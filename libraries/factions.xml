@@ -44,5 +44,4 @@
 			<response signal="policehalt" response="attack" />
 		</signals>
 	</faction>
-</replace>
 </diff>
